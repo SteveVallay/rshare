@@ -5,7 +5,7 @@ class PostsController < ApplicationController
     #render text:params[:post].inspect
     uploaded_io = params[:post][:name]
     full_path = get_upload_path(get_time_f_s() + uploaded_io.original_filename).to_s
-    File.open(full_path,'w') do |file|
+    File.open(full_path,'wb') do |file|
       file.write(uploaded_io.read)
     end
     @post = Post.new(params[:post].permit(:title,:text))
