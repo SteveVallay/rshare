@@ -1,0 +1,16 @@
+<h1>All files</h1>
+
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Description</th>
+    </tr>
+   <% @posts.each do |post| %>
+   <tr>
+       <th><%= post.title %></th>
+       <th><%= post.text %></th>
+       <th><%= post.origin_name%></th>
+       <th><%= post.real_name%></th>
+   </tr>
+   <% end %>
+</table>
