@@ -9,10 +9,12 @@
     </tr>
    <% @posts.each do |post| %>
    <tr>
-       <th><%= post.title %></th>
-       <th><%= post.text %></th>
-       <th><%= post.origin_name%></th>
-       <th><%= post.real_name%></th>
+       <td><%= post.title %></td>
+       <td><%= post.text %></td>
+       <td><%= post.origin_name%></td>
+       <td><%= post.real_name%></td>
+       <td><%= post.id %> </td>
+       <td><%= link_to 'Show', post_path(post) %></td>
    </tr>
    <% end %>
 </table>
