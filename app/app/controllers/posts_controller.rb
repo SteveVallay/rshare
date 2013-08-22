@@ -12,7 +12,7 @@ class PostsController < ApplicationController
     @post.origin_name = uploaded_io.original_filename
     @post.real_name = full_path
     @post.save
-    redirect_to @post
+    redirect_to posts_path
   end
   def show
     @post = Post.find(params[:id])
