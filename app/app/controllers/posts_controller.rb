@@ -20,6 +20,10 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
   end
+  def download
+    @post = Post.find(params[:id])
+    send_file @post.real_name, :filename => @post.origin_name ,:x_sendfile=>true
+  end
 
 private
 
