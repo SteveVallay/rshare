@@ -11,8 +11,11 @@ class PostsController < ApplicationController
     @post = Post.new(params[:post].permit(:title,:text))
     @post.origin_name = uploaded_io.original_filename
     @post.real_name = full_path
-    @post.save
-    redirect_to posts_path
+    if @post.save
+      redirect_to posts_path
+    else
+      render 'new'
+    end
   end
   def show
     @post = Post.find(params[:id])
