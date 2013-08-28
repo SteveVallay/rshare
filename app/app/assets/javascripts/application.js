@@ -16,10 +16,12 @@
 
 $(function () {
 
-$("#new_post").validate({
-debug:true,
+$("#new_post_form").validate({
+debug:false,
 rules:{
-"post[title]":{required:true}
+"post[title]":{required:true},
+"post[text]":{required:true},
+"post[name]":{required:true},
 }
 });
 
