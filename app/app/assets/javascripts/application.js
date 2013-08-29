@@ -14,16 +14,3 @@
 //= require turbolinks
 //= require_tree .
 
-$(function () {
-
-$("#new_post_form").validate({
-debug:false,
-rules:{
-"post[title]":{required:true},
-"post[text]":{required:true},
-"post[name]":{required:true},
-}
-});
-
-});
-

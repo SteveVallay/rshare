@@ -25,4 +25,16 @@
  <p>
  <%= link_to "Back", posts_path %>
  </p>
+ <script type="text/javascript">
+$().ready(function () {
 
+$("#new_post_form").validate({
+debug:false,
+rules:{
+"post[title]":{required:true},
+"post[text]":{required:true},
+"post[name]":{required:true},
+}
+});
+});
+ </script>
