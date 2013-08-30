@@ -15,14 +15,8 @@ File Name:
 Real Name:
 <%= @post.real_name %>
 </p>
-<%= button_to "Download", download_post_path(@post)%>
+<%= button_to "Download", download_post_path(@post),:class =>'btn btn-primary'%>
 <p>
-<!--
-<form>
-    <input name ="Download" type="button" value ="Download" onclick="">
-</form>
-</p>
--->
 
 <p>
 <%= link_to "Back to home", posts_path %>
