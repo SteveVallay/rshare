@@ -1,23 +1,17 @@
-<h1>new share </h1>
+<h1> share new file </h1>
 
 <%= form_for :post ,url: posts_path ,:html=>{:id=>"new_post_form"} do |f| %>
-  <p>
-  <%= f.label "Title(required)"%> </br>
+  <%= f.label "Title(required)"%>
   <%= f.text_field :title %>
-  </p>
 
-  <p>
-  <%= f.label "description(required)" %> </br>
+  <%= f.label "description(required)" %>
   <%= f.text_area :text %>
-  </p>
 
-  <p>
-  <%= f.label "File (required)" %></br>
+  <%= f.label "File (required)" %>
   <%= f.file_field :name %>
-  </p>
 
   <p>
-    <%= f.submit "Submit"%>
+  <%= f.submit "Submit" , :class=>'btn btn-success'%>
   </p>
 
   <% end %>
