@@ -1,7 +1,7 @@
 <h1>Editing infomation</h1>
 
-<%= form_for :post , url: post_path(@post.id),
-    method: :patch do |f| %>
+<%= form_for :post , url: post_path(@post.id),:html=>{:id =>'update_post_form'},
+    method: :patch  do |f| %>
  <p>
  <%=f.label :"Title(required)"%></br>
  <%=f.text_field :title %>
@@ -25,7 +25,7 @@
  <script type="text/javascript">
 $().ready(function () {
 
-$("#new_post_form").validate({
+$("#update_post_form").validate({
 debug:false,
 rules:{
 "post[title]":{required:true},
