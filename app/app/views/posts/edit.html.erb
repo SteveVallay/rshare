@@ -1,0 +1,36 @@
+<h1>Editing infomation</h1>
+
+<%= form_for :post , url: post_path(@post.id),
+    method: :patch do |f| %>
+ <p>
+ <%=f.label :"Title(required)"%></br>
+ <%=f.text_field :title %>
+ </p>
+ <p>
+ <%= f.label :'description(required)' %> </br>
+ <%= f.text_area :text %>
+ </p>
+
+ <p>
+ File name: <%= @post.origin_name %>
+ </p>
+ <p>
+  <%= f.submit "Submit" %>
+ </p>
+ <%end%>
+
+ <p>
+ <%= link_to "Back", posts_path %>
+ </p>
+ <script type="text/javascript">
+$().ready(function () {
+
+$("#new_post_form").validate({
+debug:false,
+rules:{
+"post[title]":{required:true},
+"post[text]":{required:true},
+}
+});
+});
+ </script>
