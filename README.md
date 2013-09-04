@@ -21,6 +21,7 @@ OS: Linux
 rails s
 ```
 
-打开http://localhost：3000 即可看到界面。
+打开[http://localhost:3000][1] 即可看到界面。
 
 
+[1]:http://localhost:3000
