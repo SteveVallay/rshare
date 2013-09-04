@@ -1,17 +1,18 @@
 <h1> share new file </h1>
 
-<%= form_for :post ,url: posts_path ,:html=>{:id=>"new_post_form"} do |f| %>
-  <%= f.label "Title(required)"%>
-  <%= f.text_field :title %>
+<%= simple_form_for :post ,url: posts_path ,:html=>{:id=>"new_post_form"} do |f| %>
+  <%= f.input :title %>
 
-  <%= f.label "description(required)" %>
+  <%= f.label 'description' %>
   <%= f.text_area :text %>
 
-  <%= f.label "File (required)" %>
+  <%= f.label "File" %>
   <%= f.file_field :name %>
 
   <p>
-  <%= f.submit "Submit" , :class=>'btn btn-success'%>
+  </br>
+  <%= f.submit "Submit" , :class=>'btn btn-primary' %>
+  <%= submit_tag 'Cancel',:type=> :reset, :class =>'btn btn-danger' %>
   </p>
 
   <% end %>
