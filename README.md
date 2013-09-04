@@ -4,7 +4,9 @@ rshare
 这是我第一个 rails web 程序。这个web 应用旨在帮助用户上传和分享和下载文档，不需要任何积分。
 
 Ruby version : 1.9.3
+
 Rails version : 4.0.0
+
 OS: Linux
 
 
