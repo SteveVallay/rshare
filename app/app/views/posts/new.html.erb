@@ -1,13 +1,15 @@
 <h1> share new file </h1>
 
 <%= simple_form_for :post ,url: posts_path ,:html=>{:id=>"new_post_form"} do |f| %>
+
+  <%= f.label "File" %>
+  <%= f.file_field :name %>
+
   <%= f.input :title %>
 
   <%= f.label 'description' %>
   <%= f.text_area :text %>
 
-  <%= f.label "File" %>
-  <%= f.file_field :name %>
 
   <p>
   </br>
