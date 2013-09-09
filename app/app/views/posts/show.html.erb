@@ -1,25 +1,17 @@
 <p>
-  <strong>Title:</strong>
-  <%= @post.title %>
+<strong><%=@post.origin_name %> </strong>
 </p>
 <p>
-  <strong>Text:</strong>
+  <strong>description:</strong>
   <%= @post.text %>
 </p>
-<p>
-File Name:
-<%= @post.origin_name %>
-</p>
 
-<p>
-Real Name:
-<%= @post.real_name %>
-</p>
 <%= button_to "Download", download_post_path(@post),:class =>'btn btn-primary'%>
 <p>
 
 <p>
-<%= link_to "Back to home", posts_path %>
-<%= link_to "Edit" , edit_post_path %>
+<%= link_to "Back to home", posts_path ,class: 'btn'%>
+<%= link_to "Edit" , edit_post_path ,class: 'btn'%>
+<%= link_to "delete", post_path(@post),method: :delete, data: {confirm: "are you sure?"},class: 'btn' %>
 </p>
 
