@@ -5,19 +5,16 @@
 <%= link_to "Upload",{action: "new"}, {:class=>"btn btn-primary"} %>
 </p>
 <table class="table">
+  <!--
   <thead>
     <tr>
 	<th>Title</th>
-        <th>file name</th>
-        <th>detail</th>
     </tr>
   </thead>
+  -->
    <% @posts.each do |post| %>
    <tr>
-       <td><%= post.title %></td>
-       <td><%= post.origin_name%></td>
-       <td><%= link_to 'Show', post_path(post) ,:class=>'btn'%></td>
-       <td><%= link_to 'Delete', post_path(post), method: :delete ,data: {confirm: "Are you sure to delete #{post.title}?"},:class=>'btn'%></td>
+       <td><%= link_to "#{post.origin_name}", post_path(post) ,:class=>'link'%></td>
    </tr>
    <% end %>
 </table>
