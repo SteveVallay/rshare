@@ -4,6 +4,7 @@
 <p>
   <strong>description:</strong>
   <%= @post.text %>
+  <%= @post.md5 %>
 </p>
 
 <%= button_to "Download", download_post_path(@post),:class =>'btn btn-primary'%>

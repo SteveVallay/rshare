@@ -2,12 +2,14 @@
 
 one:
   title: MyString
-  text: MyText
+  text: MyString
   origin_name: MyString
   real_name: MyString
+  md5: MyString
 
 two:
   title: MyString
-  text: MyText
+  text: MyString
   origin_name: MyString
   real_name: MyString
+  md5: MyString
