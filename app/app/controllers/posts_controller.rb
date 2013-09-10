@@ -7,14 +7,16 @@ class PostsController < ApplicationController
     md5 = Digest::MD5.hexdigest(uploaded_io.read())
     Rails.logger.info("md5 is:"+ md5)
     p = Post.find_by_md5(md5)
+    @post = Post.new(params[:post].permit(:title,:text))
     if p != nil
-      puts "find same md5"
+      @post.errors.add(:md5_exist, p.id)
+      render 'new'
+      return
     end
     full_path = get_upload_path(get_time_f_s() + uploaded_io.original_filename).to_s
     File.open(full_path,'wb') do |file|
       file.write(uploaded_io.read)
     end
-    @post = Post.new(params[:post].permit(:title,:text))
     @post.md5 = md5
     @post.origin_name = uploaded_io.original_filename
     @post.real_name = full_path

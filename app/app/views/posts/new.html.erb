@@ -10,7 +10,22 @@
   <%= f.label 'description' %>
   <%= f.text_area :text %>
 
-
+    <% if @post and  @post.errors.any? %>
+    <div id="errorExplanation">
+      <p><%= pluralize(@post.errors.count,"error") %> </p>
+      <ul>
+      <% @post.errors.messages.each do |msg| %>
+        <% if !msg[1].empty? %>
+    <li><%=if (msg[0] == :md5_exist)
+                 link_to("file already exist here" , (posts_path + "/")+msg[1][0].to_s)
+           else
+                 msg[1][0]
+           end %></li>
+      <%end
+          end %>
+      </ul>
+    </div>
+    <% end %>
   <p>
   </br>
   <%= f.submit "Submit" , :class=>'btn btn-primary' %>
