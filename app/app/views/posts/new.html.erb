@@ -1,15 +1,27 @@
 <h1> share new file </h1>
 
-<%= simple_form_for :post ,url: posts_path ,:html=>{:id=>"new_post_form"} do |f| %>
+<%= form_for :post ,url: posts_path ,:html=>{:id=>"new_post_form", class:"form-horizontal"} do |f| %>
 
-  <%= f.label "File" %>
-  <%= f.file_field :name %>
-
-  <%= f.input :title %>
-
-  <%= f.label 'description' %>
-  <%= f.text_area :text %>
-
+  <div class="control-group">
+    <%= f.label "File", class: "control-label" %>
+    <div class="controls">
+      <%= f.file_field :name%>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label 'title', class: "control-label" %>
+    <div class="controls">
+      <%= f.text_field :title, class: "span6", placeholder: "input text"%>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label 'description',class: "control-label"%>
+    <div class="controls">
+          <%= f.text_area :text ,class: "span6", placeholder: "input content"%>
+    </div>
+  </div>
+  <div class="control-group">
+    <div class="controls">
     <% if @post and  @post.errors.any? %>
     <div id="errorExplanation">
       <p><%= pluralize(@post.errors.count,"error") %> </p>
@@ -26,12 +38,14 @@
       </ul>
     </div>
     <% end %>
-  <p>
-  </br>
-  <footer>
-  <%= f.submit "Submit" , :class=>'btn btn-primary' %>
-  <%= submit_tag 'Cancel',:type=> :reset, :class =>'btn btn-danger' %>
-  </p>
+  </div>
+  </div>
+  <div class="control-groups">
+    <div class="controls">
+      <%= f.submit "Submit" , :class=>'btn btn-primary' %>
+      <%= submit_tag 'Cancel',:type=> :reset, :class =>'btn btn-danger' %>
+    </div>
+  </div>
 
   <% end %>
 
