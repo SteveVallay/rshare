@@ -1,17 +1,14 @@
 <h1>All files</h1>
 
-
-<p>
-<%= link_to "Upload",{action: "new"}, {:class=>"btn btn-primary"} %>
-</p>
 <table class="table">
-  <!--
-  <thead>
-    <tr>
-	<th>Title</th>
-    </tr>
-  </thead>
-  -->
+  <tr>
+    <th>Name</th>
+    <th>Upload time</th>
+    <th>uploader</th>
+    <th>file size</th>
+    <th>download times</th>
+    <th>+1</th>
+  </tr>
    <% @posts.each do |post| %>
    <tr>
        <td><%= link_to "#{post.origin_name}", post_path(post) ,:class=>'link'%></td>
