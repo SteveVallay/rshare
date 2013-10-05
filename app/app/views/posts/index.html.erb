@@ -2,6 +2,7 @@
 
 <table class="table">
   <tr>
+    <th>Cover Image</th>
     <th>Name</th>
     <th>Upload time</th>
     <th>uploader</th>
@@ -11,7 +12,13 @@
   </tr>
    <% @posts.each do |post| %>
    <tr>
+       <td>for image</td>
        <td><%= link_to "#{post.origin_name}", post_path(post) ,:class=>'link'%></td>
+       <td><%= post.created_at %></td>
+       <td>None</td>
+       <td>for file-size</td>
+       <td>0</td>
+       <td>for +1</td>
    </tr>
    <% end %>
 </table>
