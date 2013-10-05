@@ -4,7 +4,8 @@ class PostsController < ApplicationController
   def create
     #render text:params[:post].inspect
     uploaded_io = params[:post][:name]
-    md5 = Digest::MD5.hexdigest(uploaded_io.read())
+    aa= uploaded_io.read
+    md5 = Digest::MD5.hexdigest(aa)
     Rails.logger.info("md5 is:"+ md5)
     p = Post.find_by_md5(md5)
     @post = Post.new(params[:post].permit(:title,:text))
@@ -15,7 +16,7 @@ class PostsController < ApplicationController
     end
     full_path = get_upload_path(get_time_f_s() + uploaded_io.original_filename).to_s
     File.open(full_path,'wb') do |file|
-      file.write(uploaded_io.read)
+      file.write(aa)
     end
     @post.md5 = md5
     @post.origin_name = uploaded_io.original_filename
