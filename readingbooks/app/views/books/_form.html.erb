@@ -12,6 +12,10 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :select_file %><br>
+    <%= f.file_field :file %>
+  </div>
+  <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
@@ -22,18 +26,6 @@
   <div class="field">
     <%= f.label :image %><br>
     <%= f.text_field :image %>
-  </div>
-  <div class="field">
-    <%= f.label :uploader %><br>
-    <%= f.text_field :uploader %>
-  </div>
-  <div class="field">
-    <%= f.label :filesize %><br>
-    <%= f.text_field :filesize %>
-  </div>
-  <div class="field">
-    <%= f.label :downloads %><br>
-    <%= f.number_field :downloads %>
   </div>
   <div class="actions">
     <%= f.submit %>
