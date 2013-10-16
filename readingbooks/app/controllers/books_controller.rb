@@ -25,6 +25,13 @@ class BooksController < ApplicationController
   # POST /books.json
   def create
     @book = Book.new(book_params)
+    uploaded_io = params[:book][:file]
+    aa = uploaded_io.read
+    full_path = get_upload_path(get_time_f_s() + uploaded_io.original_filename).to_s
+    File.open(full_path,'wb') do |file|
+      file.write(aa)
+    end
+    @book.name = uploaded_io.original_filename
 
     respond_to do |format|
       if @book.save
@@ -70,5 +77,12 @@ class BooksController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
       params.require(:book).permit(:name, :desc, :image, :uploader, :filesize, :downloads)
+    end
+
+    def get_upload_path(file_name)
+      return Rails.root.join('public','uploads',file_name)
+    end
+    def get_time_f_s
+      Time.now.to_f.to_s() + '_'
     end
 end
