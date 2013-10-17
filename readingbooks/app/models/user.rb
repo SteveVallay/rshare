@@ -7,6 +7,17 @@ class User < ActiveRecord::Base
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, format: { with: VALID_EMAIL_REGEX }
 
+  def self.auth(email, pass)
+    p 'email:' + email
+    user = find_by_email(email)
+    p user
+    if user && user.password == pass
+      user
+    else
+      nil
+    end
+  end
+
   def password
     @password ||= Password.new(password_digest)
   end
@@ -15,4 +26,5 @@ class User < ActiveRecord::Base
     @password = Password.create(new_password)
     self.password_digest = @password
   end
+
 end
