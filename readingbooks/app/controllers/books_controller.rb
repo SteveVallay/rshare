@@ -27,14 +27,31 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
     uploaded_io = params[:book][:file]
     aa = uploaded_io.read
-    full_path = get_upload_path(get_time_f_s() + uploaded_io.original_filename).to_s
-    File.open(full_path,'wb') do |file|
-      file.write(aa)
+
+    md5 = Digest::MD5.hexdigest(aa)
+    Rails.logger.info("md5 is:"+ md5)
+
+    same_book = Book.find_by_md5(md5)
+
+    if same_book != nil
+      @book.errors.add(:exist,same_book.name + "already exist")
+    else
+      full_path = get_upload_path(get_time_f_s() + uploaded_io.original_filename).to_s
+      File.open(full_path,'wb') do |file|
+        file.write(aa)
+      end
+
+      @book.location = full_path
+      @book.name = uploaded_io.original_filename
+      @book.md5 = md5
+      current_user = "N/A"
+      @book.uploader = current_user
+      @book.filesize = format_file_size(uploaded_io.size())
     end
-    @book.name = uploaded_io.original_filename
+
 
     respond_to do |format|
-      if @book.save
+      if !same_book && @book.save
         format.html { redirect_to @book, notice: 'Book was successfully created.' }
         format.json { render action: 'show', status: :created, location: @book }
       else
@@ -68,6 +85,11 @@ class BooksController < ApplicationController
     end
   end
 
+  def download
+    @book = Book.find(params[:id])
+    send_file @book.location, :filename => @book.name ,:x_sendfile=>true
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_book
@@ -84,5 +106,14 @@ class BooksController < ApplicationController
     end
     def get_time_f_s
       Time.now.to_f.to_s() + '_'
+    end
+    def format_file_size(size)
+      k = 1024
+      m = 1024*1024
+      if size > m
+        size/m +' M'
+      else
+        (size/k).to_s + ' K'
+      end
     end
 end

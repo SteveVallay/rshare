@@ -11,8 +11,7 @@
 </p>
 
 <p>
-  <strong>Image:</strong>
-  <%= @book.image %>
+  <%= image_tag(@book.image,size: "200x140") %>
 </p>
 
 <p>
@@ -26,8 +25,12 @@
 </p>
 
 <p>
-  <strong>Downloads:</strong>
-  <%= @book.downloads %>
+  <strong>MD5:</strong>
+  <%= @book.md5 %>
+</p>
+
+<p>
+<%= button_to "Download", download_book_path(@book),:class =>'btn btn-primary'%>
 </p>
 
 <%= link_to 'Edit', edit_book_path(@book) %> |
