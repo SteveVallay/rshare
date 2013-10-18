@@ -4,7 +4,7 @@ class BooksController < ApplicationController
   # GET /books
   # GET /books.json
   def index
-    @books = Book.all
+    @books = Book.search(params[:search])
   end
 
   # GET /books/1
@@ -44,8 +44,8 @@ class BooksController < ApplicationController
       @book.location = full_path
       @book.name = uploaded_io.original_filename
       @book.md5 = md5
-      current_user = "N/A"
-      @book.uploader = current_user
+      default_user = current_user.name if current_user
+      @book.uploader = default_user || 'N/A'
       @book.filesize = format_file_size(uploaded_io.size())
     end
 
@@ -111,7 +111,7 @@ class BooksController < ApplicationController
       k = 1024
       m = 1024*1024
       if size > m
-        size/m +' M'
+        (size/m).to_s + ' M'
       else
         (size/k).to_s + ' K'
       end

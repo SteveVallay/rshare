@@ -7,17 +7,25 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<div id="top">
-		<div class="logo">
-			<%= link_to image_tag("free_books.png",size: '386x118',alt: "FreeBooks - get free books online"),root_path%>
-		</div>
-		<div class="user_nav">
+	<div class="user_nav">
 			<% if current_user %>
 			  Logged in as <%= current_user.name %>.
 			  <%= link_to "Loggout",signout_path %>
 			<% else %>
 			  <%= link_to "Login", signin_path %> | <%= link_to "Sign Up", signup_path %>
 			<% end %>
+		</div>
+	<div id="top">
+		<div class="logo">
+			<%= link_to image_tag("free_books.png",size: '386x118',alt: "FreeBooks - get free books online"),root_path%>
+		</div>
+		<div class="search">
+		  <%= form_tag books_path, :method => 'get' do %>
+			  <p>
+			    <%= text_field_tag :search, params[:search] %>
+			    <%= submit_tag "Search", :name => nil %>
+			  </p>
+		  <% end %>
 		</div>
 	</div>
 
