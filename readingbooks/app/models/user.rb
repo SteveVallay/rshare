@@ -8,9 +8,7 @@ class User < ActiveRecord::Base
   validates :email, format: { with: VALID_EMAIL_REGEX }
 
   def self.auth(email, pass)
-    p 'email:' + email
     user = find_by_email(email)
-    p user
     if user && user.password == pass
       user
     else
@@ -25,6 +23,10 @@ class User < ActiveRecord::Base
   def password=(new_password)
     @password = Password.create(new_password)
     self.password_digest = @password
+  end
+
+  def admin?
+    self.admin
   end
 
 end

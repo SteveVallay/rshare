@@ -1,5 +1,4 @@
 body {
-  background-color: #fff;
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
@@ -38,7 +37,10 @@ div {
 #notice {
   color: green;
 }
-
+#error {
+  color: red;
+  font-size: 1em;
+}
 .field_with_errors {
   padding: 2px;
   background-color: red;
