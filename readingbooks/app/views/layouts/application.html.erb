@@ -8,6 +8,7 @@
 </head>
 <body>
 	<div class="user_nav">
+		<%= link_to "Home" %> | 
 			<% if current_user %>
 			  Logged in as <%= current_user.name %>.
 			  <%= link_to "Loggout",signout_path %>
