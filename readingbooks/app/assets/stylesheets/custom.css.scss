@@ -8,16 +8,38 @@ body {
     padding-bottom: 10%;
 }
 
-a {
-    text-decoration: none;
-}
-
-a:hover
-{
-    text-decoration: none;
-    color: green;
-}
 .nav-text{
     color: white;
     font-size: 1.2em;
+}
+
+.book-desc{
+    display:inline-block;
+    a {
+        font-size: 1.2em;
+        text-decoration: none;
+    }
+    vertical-align: top;
+    margin-left:1em;
+}
+.book {
+    padding: 1em;
+    border: 1px dashed green;
+}
+
+.book-img {
+    width:125px;
+    height:auto;
+    border:1px solid;
+}
+
+.book-name-input {
+    width: 30em;
+}
+.book-desc-input {
+    width: 30em;
+    height: 10em;
+}
+.book-image-input {
+    width: 30em;
 }

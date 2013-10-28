@@ -30,6 +30,6 @@ class ApplicationController < ActionController::Base
      end
 
      def owner?
-       false
+       admin?
      end
 end

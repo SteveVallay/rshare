@@ -24,7 +24,7 @@
 			  Logged in as <%= current_user.name %>  
 			  <%= link_to "Loggout",signout_path,class: "btn" %>
 			<% else %>
-			  <%= link_to "Login", signin_path,class: "btn" %> | <%= link_to "Sign Up", signup_path,class: "btn" %>
+			  <%= link_to "Login", signin_path,class: "btn" %> <%= link_to "Sign Up", signup_path,class: "btn" %>
 			<% end %>
 		    </div>
           </div><!--/.nav-collapse -->
@@ -33,7 +33,10 @@
     </div>
     </div>
 <% flash.each do |key, msg| %>
-  <%= content_tag :div, msg, :id => key %>
+ <div class="alert <%=bootstrap_class_for(key)%>">
+ 	 <button type="button" class="close" data-dismiss="alert">&times;</button>
+     <%= msg %>
+ </div>
 <% end %>
 <%= yield %>
 

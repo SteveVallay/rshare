@@ -16,18 +16,18 @@
     <%= f.file_field :file %>
   </div>
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.label "Name:" %>
+    <%= f.text_field :name ,class: "book-name-input"%>
   </div>
   <div class="field">
-    <%= f.label :desc %><br>
-    <%= f.text_area :desc %>
+    <%= f.label "Desc:" %><br>
+    <%= f.text_area :desc ,class: "book-desc-input"%>
   </div>
   <div class="field">
-    <%= f.label :image %><br>
-    <%= f.text_field :image %>
+    <%= f.label "Image:" %><br>
+    <%= f.text_field :image,class: "book-image-input"%>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "btn btn-primary"%>
   </div>
 <% end %>
