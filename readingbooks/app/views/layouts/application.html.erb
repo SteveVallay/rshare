@@ -7,29 +7,36 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<div class="user_nav">
-		<%= link_to "Home" %> | 
-			<% if current_user %>
+	<div id="header">
+	<div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"> <%= link_to "Home",root_path %></li>
+              <li><a href="#about">About</a></li>
+            </ul>
+            <%= form_tag books_path, :method => 'get',class: "navbar-form pull-left" do %>
+			    <%= text_field_tag :search, params[:search],class: "search-query",placeholder: "Search" %>
+		    <% end %>
+		    <div class="pull-right">
+		    <% if current_user %>
 			  Logged in as <%= current_user.name %>.
-			  <%= link_to "Loggout",signout_path %>
+			  <%= link_to "Loggout",signout_path,class: "btn" %>
 			<% else %>
-			  <%= link_to "Login", signin_path %> | <%= link_to "Sign Up", signup_path %>
+			  <%= link_to "Login", signin_path,class: "btn" %> | <%= link_to "Sign Up", signup_path,class: "btn" %>
 			<% end %>
-		</div>
-	<div id="top">
-		<div class="logo">
-			<%= link_to image_tag("free_books.png",size: '386x118',alt: "FreeBooks - get free books online"),root_path%>
-		</div>
-		<div class="search">
-		  <%= form_tag books_path, :method => 'get' do %>
-			  <p>
-			    <%= text_field_tag :search, params[:search] %>
-			    <%= submit_tag "Search", :name => nil %>
-			  </p>
-		  <% end %>
-		</div>
-	</div>
-
+		    </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+    </div>
 <% flash.each do |key, msg| %>
   <%= content_tag :div, msg, :id => key %>
 <% end %>
