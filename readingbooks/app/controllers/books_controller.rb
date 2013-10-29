@@ -35,7 +35,8 @@ class BooksController < ApplicationController
     same_book = Book.find_by_md5(md5)
 
     if same_book != nil
-      @book.errors.add(:exist,same_book.name + "already exist")
+      #@book.errors.add(:exist,same_book.name + " already exist")
+      flash[:error] = same_book.name + " already exist !"
     else
       full_path = get_upload_path(get_time_f_s() + uploaded_io.original_filename).to_s
       File.open(full_path,'wb') do |file|
