@@ -22,14 +22,21 @@
  <%= link_to "Back", posts_path %>
  </p>
  <script type="text/javascript">
-$().ready(function () {
-
+$(document).ready(function () {
 $("#update_post_form").validate({
 debug:false,
 rules:{
 "post[title]":{required:true},
 "post[text]":{required:true},
-}
+},
+ highlight: function(element) {
+    $(element).closest('.control-group').removeClass('success').addClass('error');
+  },
+  success: function(element) {
+    element
+    .text('OK!').addClass('valid')
+    .closest('.control-group').removeClass('error').addClass('success');
+  }
 });
 });
  </script>

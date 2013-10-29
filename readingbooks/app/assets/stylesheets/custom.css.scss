@@ -60,3 +60,21 @@ body {
 .nav-upload {
     margin-left: 2em;
 }
+
+/**css for validation */
+label.valid {
+  width: 30px;
+  height: 30px;
+  background: url(Done.png) center center no-repeat;
+  display: inline-block;
+  text-indent: -9999px;
+  vertical-align: center;
+  margin-left: 1em;
+}
+label.error {
+  font-weight: bold;
+  color: red;
+  padding-left: 1em;
+  display: inline-block;
+  vertical-align:center;
+}
