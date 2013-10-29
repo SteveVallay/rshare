@@ -1,31 +1,18 @@
-<p>
-  <strong>Name:</strong>
+<h3 class="book-title">
   <%= @book.name %>
-</p>
+</h3>
 
-<p>
-  <strong>Desc:</strong>
-  <%= @book.desc %>
-</p>
+<div class="book-show">
+  <%=  image_tag(@book.image, class: "book-img")%>
+  <div class="book-desc">
+      <%= @book.desc %>
+      <div class="uploader">
+        Uploader: <span class="name"><%= @book.uploader %></span>
+      </div>
+  </div>
 
-<p>
-  <%= image_tag(@book.image, class: "book-img") %>
-</p>
 
-<p>
-  <strong>Uploader:</strong>
-  <%= @book.uploader %>
-</p>
-
-<p>
-  <strong>Filesize:</strong>
-  <%= @book.filesize %>
-</p>
-
-<p>
-  <strong>MD5:</strong>
-  <%= @book.md5 %>
-</p>
+</div>
 
 <p>
 <%= button_to "Download", download_book_path(@book),:class =>'btn btn-primary'%>

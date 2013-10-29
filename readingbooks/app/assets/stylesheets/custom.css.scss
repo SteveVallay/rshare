@@ -21,14 +21,15 @@ body {
     }
     vertical-align: top;
     margin-left:1em;
+    width: 50em;
 }
-.book {
+.book-index {
     padding: 1em;
     border: 1px dashed green;
 }
 
 .book-img {
-    width:125px;
+    width:60px;
     height:auto;
     border:1px solid;
 }
@@ -42,4 +43,20 @@ body {
 }
 .book-image-input {
     width: 30em;
+}
+
+.book-title{
+    margin-bottom: 1em;
+}
+
+
+.uploader{
+    margin: 1em;
+    .name{
+        color: red;
+    }
+}
+
+.nav-upload {
+    margin-left: 2em;
 }

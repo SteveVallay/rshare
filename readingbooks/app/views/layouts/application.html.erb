@@ -19,6 +19,7 @@
             <%= form_tag books_path, :method => 'get',class: "navbar-form pull-left" do %>
 			    <%= text_field_tag :search, params[:search],class: "search-query",placeholder: "Search" %>
 		    <% end %>
+       <%= link_to 'Upload', new_book_path , class: "btn nav-upload btn-success" %>
 		    <div class="pull-right nav-text">
 		    <% if current_user %>
 			  Logged in as <%= current_user.name %>  
