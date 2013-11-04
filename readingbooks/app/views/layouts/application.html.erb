@@ -22,7 +22,7 @@
        <%= link_to 'Upload', new_book_path , class: "btn nav-upload btn-success" %>
 		    <div class="pull-right nav-text">
 		    <% if current_user %>
-			  Logged in as <%= current_user.name %>  
+			  <%= link_to current_user.name, user_path(current_user) %>
 			  <%= link_to "Loggout",signout_path,class: "btn" %>
 			<% else %>
 			  <%= link_to "Login", signin_path,class: "btn" %> <%= link_to "Sign Up", signup_path,class: "btn" %>
