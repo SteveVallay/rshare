@@ -6,17 +6,15 @@
   <%=  image_tag(@book.image, class: "book-img")%>
   <div class="book-desc">
       <%= @book.desc %>
-      <div class="uploader">
-        Uploader: <span class="name"><%= @book.uploader %></span>
+      <p></p>
+      <div>
+      	Author: <span class="book-detail"> <%= @book.author %></span>
       </div>
       <div>
-      	author: <span class="name"> <%= @book.author %></span>
+      	Language: <span class="book-detail"> <%= @book.language %></span>
       </div>
       <div>
-      	language: <span class="name"> <%= @book.language %></span>
-      </div>
-      <div>
-       file size: <span class="name"> <%= @book.filesize %></span>
+       File size: <span class="book-detail"> <%= @book.filesize %></span>
       </div>
   </div>
 

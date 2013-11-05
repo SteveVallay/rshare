@@ -49,14 +49,6 @@ body {
     margin-bottom: 1em;
 }
 
-
-.uploader{
-    margin: 1em;
-    .name{
-        color: red;
-    }
-}
-
 .nav-upload {
     margin-left: 2em;
 }
@@ -77,4 +69,8 @@ label.error {
   padding-left: 1em;
   display: inline-block;
   vertical-align:center;
+}
+
+.book-detail{
+  font-weight: bold;
 }
