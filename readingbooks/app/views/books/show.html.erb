@@ -6,15 +6,15 @@
   <%=  image_tag(@book.image, class: "book-img")%>
   <div class="book-desc">
       <%= @book.desc %>
-      <p></p>
+      <p> </p>
       <div>
-      	Author: <span class="book-detail"> <%= @book.author %></span>
+        <%= t('book.author') %>: <span class="book-detail"> <%= @book.author %></span>
       </div>
       <div>
-      	Language: <span class="book-detail"> <%= @book.language %></span>
+        <%= t('book.language') %>: <span class="book-detail"> <%= @book.language %></span>
       </div>
       <div>
-       File size: <span class="book-detail"> <%= @book.filesize %></span>
+       <%= t('book.filesize') %>: <span class="book-detail"> <%= @book.filesize %></span>
       </div>
   </div>
 
@@ -22,10 +22,9 @@
 </div>
 
 <p>
-<%= button_to "Download", download_book_path(@book),:class =>'btn btn-primary'%>
+<%= button_to t('book.download'), download_book_path(@book),:class =>'btn btn-primary'%>
 </p>
 
 <% if owner? %>
-<%= link_to 'Edit', edit_book_path(@book) %> |
+<%= link_to t('book.edit'), edit_book_path(@book) %>
 <% end %>
-<%= link_to 'Back', books_path %>

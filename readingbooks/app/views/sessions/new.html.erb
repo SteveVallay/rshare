@@ -1,17 +1,16 @@
-<h1>Sign In<h1>
 <div>
 <%= form_tag(sessions_path) do %>
 
-  <%= label_tag :email %>
+  <%= label_tag t('session.email') %>
   <%= text_field_tag :email %>
 
-  <%= label_tag :password %>
+  <%= label_tag t('session.password') %>
   <%= password_field_tag :password %>
-
-  <%= submit_tag "SignIn" %>
+  <br/>
+  <%= submit_tag t('session.signin'), class: "btn btn-middle btn-primary" %>
 
 <% end %>
 
-<p>New user? <%= link_to "Sign up now!" , signup_path %></p>
+<p><%= t('session.new_user')%> <%= link_to t('session.signup') , signup_path %></p>
 
 </div>

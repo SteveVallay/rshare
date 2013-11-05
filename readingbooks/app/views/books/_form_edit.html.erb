@@ -11,26 +11,26 @@
   <% end %>
 
   <div class="field control-group">
-    <%= f.label "Name:", class: "control-label"%>
+    <%= f.label t('book.name'), class: "control-label"%>
     <div>
-      <%= f.text_field :name ,class: "book-name-input", placeholder: "Input book name here"%>
+      <%= f.text_field :name ,class: "book-name-input", placeholder: t('book.input_name')%>
     </div>
   </div>
   <div class="field">
-    <%= f.label "language:" %><br>
-    <%= f.text_field :language, placeholder: "Input language"%>
+    <%= f.label t('book.desc') %><br>
+    <%= f.text_area :desc ,class: "book-desc-input", placeholder: t('book.desc') %>
   </div>
   <div class="field">
-    <%= f.label "author:" %><br>
-    <%= f.text_field :author, placeholder: "Input author"%>
+    <%= f.label t('book.author') %><br>
+    <%= f.text_field :author, class: "book-name-input",placeholder: t('book.author')%>
   </div>
   <div class="field">
-    <%= f.label "Desc:" %><br>
-    <%= f.text_area :desc ,class: "book-desc-input", placeholder: "Intro the book here" %>
+    <%= f.label t('book.language') %><br>
+    <%= f.text_field :language,class: "book-name-input", placeholder: t('book.language')%>
   </div>
   <div class="field">
-    <%= f.label "Image:" %><br>
-    <%= f.text_field :image,class: "book-image-input", placeholder: "Input cover image url here"%>
+    <%= f.label t('book.cover') %><br>
+    <%= f.text_field :image,class: "book-image-input", placeholder: t('book.cover')%>
   </div>
 
   <div class="actions">
@@ -47,6 +47,9 @@ rules:{
 "book[name]" :{required:true},
 "book[desc]" :{required:true},
 "book[image]":{required:true},
+"book[language]":{required:true},
+"book[author]":{required:true},
+
 },
  highlight: function(element) {
     $(element).closest('.control-group').removeClass('success').addClass('error');

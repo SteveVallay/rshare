@@ -1,0 +1,59 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :English
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+zh:
+  application:
+    title: 读书汇
+    home: 主页
+    about: 关于
+    search: 搜索
+    upload: 上传
+    logout: 注销
+    login: 登陆
+    signup: 注册
+  user:
+    name: 用户名
+    email: 邮箱
+    password: 密码
+    new_user_reg: 注册新用户
+    signup: 注册
+  session:
+    signin: 登陆
+    new_user: 新用户?
+    signup: 注册
+    email: 邮箱
+    password: 密码
+  book:
+    download: 下载
+    edit: 编辑
+    author: 作者
+    language: 语言
+    filesize: 文件大小
+    upload_new: 上传新文件
+    select_file: 选择文件
+    name: 名称
+    desc: 介绍
+    cover: 封面 URL 
+    submit: 提交
+    input_name: 输入名称
+    intput_desc: 输入书籍简介
+    input_author: 作者
+    input_language: 语言
