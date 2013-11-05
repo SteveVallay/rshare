@@ -26,6 +26,14 @@
     <%= f.text_area :desc ,class: "book-desc-input", placeholder: "Intro the book here" %>
   </div>
   <div class="field">
+    <%= f.label "author:" %><br>
+    <%= f.text_field :author, class: "book-name-input",placeholder: "Input author"%>
+  </div>
+  <div class="field">
+    <%= f.label "language:" %><br>
+    <%= f.text_field :language,class="book-name-input" placeholder: "Input language"%>
+  </div>
+  <div class="field">
     <%= f.label "Image:" %><br>
     <%= f.text_field :image,class: "book-image-input", placeholder: "Input cover image url here"%>
   </div>
@@ -44,6 +52,8 @@ rules:{
 "book[name]" :{required:true},
 "book[desc]" :{required:true},
 "book[image]":{required:true},
+"book[language]":{required:true},
+"book[author]":{required:true},
 },
  highlight: function(element) {
     $(element).closest('.control-group').removeClass('success').addClass('error');

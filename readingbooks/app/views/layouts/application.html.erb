@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= content_for?(:title) ? yield(:title) : "Get Free Books" %> - FreeBooks</title>
+  <title><%= content_for?(:title) ? yield(:title) : "ReadingBooks" %></title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -14,7 +14,7 @@
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li class="active"> <%= link_to "Home",root_path %></li>
-              <li><a href="#about">About</a></li>
+              <li><%= link_to "About", about_path %></li>
             </ul>
             <%= form_tag books_path, :method => 'get',class: "navbar-form pull-left" do %>
 			    <%= text_field_tag :search, params[:search],class: "search-query",placeholder: "Search" %>

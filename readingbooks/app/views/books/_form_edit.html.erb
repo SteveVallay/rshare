@@ -18,6 +18,14 @@
     </div>
   </div>
   <div class="field">
+    <%= f.label "language:" %><br>
+    <%= f.text_field :language, placeholder: "Input language"%>
+  </div>
+  <div class="field">
+    <%= f.label "author:" %><br>
+    <%= f.text_field :author, placeholder: "Input author"%>
+  </div>
+  <div class="field">
     <%= f.label "Desc:" %><br>
     <%= f.text_area :desc ,class: "book-desc-input", placeholder: "Intro the book here" %>
   </div>
@@ -25,6 +33,7 @@
     <%= f.label "Image:" %><br>
     <%= f.text_field :image,class: "book-image-input", placeholder: "Input cover image url here"%>
   </div>
+
   <div class="actions">
     <%= f.submit class: "btn btn-primary"%>
   </div>
